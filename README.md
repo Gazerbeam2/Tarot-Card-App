@@ -5,6 +5,7 @@
 # Features: Draw a daily card. Press the button and you receive a randomized tarot card with a description of your tarot.
 
 1. Picture
-2. Description of arcana.
-   3.Description of card.
-   4.Reading
+2. Description of arcana
+   3.Description of card
+
+3. Tarot Reading
