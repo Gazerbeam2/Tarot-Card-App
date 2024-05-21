@@ -9,3 +9,6 @@
    3.Description of card
 
 3. Tarot Reading
+
+//Animations when a card is selected
+//Randomizer algorithm
