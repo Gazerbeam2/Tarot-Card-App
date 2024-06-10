@@ -1,4 +1,6 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const AutoIncrement = require('mongoose-')
 const bodyParser = require('body-parser')
 const app = express();
 const MongoClient = require('mongodb').MongoClient
@@ -26,7 +28,7 @@ MongoClient.connect(connectionString)
             // ...
           })
 
-          app.get('/random',(req,res) =>{
+          app.get('/',(req,res) =>{
             const randomNum = Math.floor(Math.random() * n) + 1 
             const card = Card.findOne({id:randomNum})
             res.render()
