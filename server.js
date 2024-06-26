@@ -1,10 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const AutoIncrement = require('mongoose-')
-const bodyParser = require('body-parser')
+//const AutoIncrement = require('mongoose-')
+const bodyParser = require('body-parser');
 const app = express();
-const MongoClient = require('mongodb').MongoClient
-const connectionString = 'mongodb+srv://jordanbryantsmith:Shadowfax1234@cluster0.ebgyrrt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+const MongoClient = require('mongodb').MongoClient;
+const dotenv = require('dotenv').config();
+const connectionString = process.env.MONGODB_URL
+const cardSchema = new mongoose.Schema({
+  id: { type: Number, required: true, unique: true},
+});
+const Card = mongoose.model('Card', cardSchema)
 
 MongoClient.connect(connectionString)
     .then(client => {
@@ -28,11 +33,10 @@ MongoClient.connect(connectionString)
             // ...
           })
 
-          app.get('/',(req,res) =>{
+          app.get('/random',(req,res) =>{
             const randomNum = Math.floor(Math.random() * n) + 1 
             const card = Card.findOne({id:randomNum})
             res.render()
           })
     })
-    .catch(error => console.error(err));
-
+    .catch(error => console.error(error));
