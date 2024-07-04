@@ -34,7 +34,7 @@ MongoClient.connect(connectionString)
           })
 
           app.get('/random',(req,res) =>{
-            const randomNum = Math.floor(Math.random() * n) + 1 
+            const randomNum = Math.floor(Math.random() * 2) + 1 
             const card = Card.findOne({id:randomNum})
             res.render()
           })
