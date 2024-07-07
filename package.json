@@ -12,7 +12,7 @@
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
-    "mongodb": "^6.7.0",
+    "mongodb": "^6.8.0",
     "mongoose-sequence": "^6.0.1"
   }
 }

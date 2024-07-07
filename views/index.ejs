@@ -8,10 +8,30 @@
 </head>
 <body>
    <h1>Daily Tarot Card</h1>
-   <img src="" alt="">
-   <p></p>
-<button id="update-button">Click for your daily reading</button>
 
+   <% if (locals.error) { %>
+       <p>Error: <%= error %></p>
+   <% } %>
+
+   <% if (locals.card) { %>
+       <h2>Random Card</h2>
+       <p>ID: <%= card.id %></p>
+       <p>Name: <%= card.name %></p>
+       <!-- Add more card properties as needed -->
+   <% } %>
+
+   <% if (locals.cards && cards.length > 0) { %>
+       <h2>All Cards</h2>
+       <ul>
+       <% cards.forEach(function(card) { %>
+           <li><%= card.name %> (ID: <%= card.id %>)</li>
+       <% }); %>
+       </ul>
+   <% } %>
+
+   <form action="/random" method="GET">
+       <button type="submit">Get Random Card</button>
+   </form>
 
 <script src="/main.js"></script>
 </body>
