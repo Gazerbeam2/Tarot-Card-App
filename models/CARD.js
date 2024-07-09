@@ -13,6 +13,6 @@ const cardSchema = new mongoose.Schema({
 
 });
 
-const Card = mongoose.model('Card', cardSchema);
+const Card = mongoose.model('Card', cardSchema,'Major-Arcana');
 
 module.exports = Card;

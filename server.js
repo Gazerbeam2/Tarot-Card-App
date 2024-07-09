@@ -5,33 +5,10 @@ const bodyParser = require('body-parser');
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
 const dotenv = require('dotenv').config();
-const connectionString = process.env.MONGODB_URL
-//const cardSchema = new mongoose.Schema({
-  //id: { type: Number, required: true, unique: true},
-//});
-const Card = require('./models/CARD')
+const connectionString = process.env.MONGODB_URL;
+const Card = require('./models/Card.js')
 
-/*mongoose.connect(connectionString)
-    .then(client => {
-        console.log('Connected to Database');
-        const db = client.db('Gazerbeam2')
-        const quotesCollection = db.collection('Major-Arcana')
-        app.set('view engine','ejs') //has to go before any other apps
-
-        app.listen(3000,function(){
-        console.log('Bahaha your server is listening on 3000')
-})
-        app.use(express.static('public'))
-
-        app.get('/', (req, res) => {
-            quotesCollection.find().toArray()
-              .then(results => {
-                console.log(results)
-              })
-              .catch(error => console.error(error))
-              res.render('index.ejs',{})
-            // ...
-          })
+/*
 
           app.get('/random',(req,res) =>{
             const randomNum = Math.floor(Math.random() * 2) + 1
@@ -41,9 +18,20 @@ const Card = require('./models/CARD')
     })
     .catch(error => console.error(error)); */
 
- mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+ mongoose.connect(connectionString, {})
   .then(() => console.log('Connected to Database'))
   .catch(error => console.error('Database connection error:', error));
+
+  const db = mongoose.connection;
+  db.on('error', console.error.bind(console, 'connection error:'));
+  db.once('open', function() {
+  console.log("We're connected to the database!");
+});
+
+Card.find({})
+  .then(documents => console.log('Found documents:', documents))
+  .catch(err => console.error('Error querying documents:', err));
+
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -52,16 +40,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/', async (req, res) => {
   try {
     const cards = await Card.find().lean();
-    res.render('index', { cards });
-  } catch (error) {
-    console.error('Error fetching cards:', error);
-    res.render('index', { cards: [], error: 'Failed to fetch cards' });
+    console.log(cards);
+    res.render('index.ejs', { cards });
+  } catch (err) {
+    console.error('Error fetching cards:', err);
   }
 });
 
 app.get('/random', async (req, res) => {
   try {
     const count = await Card.countDocuments();
+   // console.log(count);
     const randomNum = Math.floor(Math.random() * count) + 1;
     const card = await Card.findOne({ id: randomNum }).lean();
 
@@ -77,4 +66,4 @@ app.get('/random', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
+app.listen(PORT, () => console.log(`I hear you right now on ${PORT}`));
