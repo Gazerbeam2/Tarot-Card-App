@@ -50,9 +50,10 @@ app.get('/', async (req, res) => {
 app.get('/random', async (req, res) => {
   try {
     const count = await Card.countDocuments();
-   // console.log(count);
+    //console.log(count);
     const randomNum = Math.floor(Math.random() * count) + 1;
-    const card = await Card.findOne({ id: randomNum }).lean();
+    const card = await Card.findOne({ num_id: randomNum }).lean();
+    console.log(card)
 
     if (!card) {
       return res.render('index', { card: null, error: 'No card found' });
