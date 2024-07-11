@@ -55,11 +55,12 @@ app.get('/random', async (req, res) => {
     const card = await Card.findOne({ num_id: randomNum }).lean();
     console.log(card)
 
+
     if (!card) {
       return res.render('index', { card: null, error: 'No card found' });
     }
 
-    res.render('index', { card });
+    res.render('index', { card : card });
   } catch (error) {
     console.error('Error fetching random card:', error);
     res.render('index', { card: null, error: 'Failed to fetch random card' });
@@ -68,5 +69,3 @@ app.get('/random', async (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`I hear you right now on ${PORT}`));
-
-modules.export = card;
