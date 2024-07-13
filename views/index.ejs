@@ -9,10 +9,20 @@
 <body>
    <h1>Daily Tarot Card</h1>
     <h2>
-        <%=card.name%>
+        <%= card.name %>
+
     </h2>
+
+    <h3> <%= card.Arcana %> </h3>
+
+    <p> <%= card.Keywords %> </p>
+
+    <p> <%= card.Reading %> </p>
+
+    <img src="<%= card.image %>">
+
    <form action="/random" method="GET">
-       <button type="submit">Get Random Card</button>
+       <button id="update-button" type="submit">Daily Reading</button>
    </form>
 
 <script src="/main.js"></script>

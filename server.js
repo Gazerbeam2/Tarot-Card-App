@@ -28,9 +28,9 @@ const Card = require('./models/Card.js')
   console.log("We're connected to the database!");
 });
 
-//Card.find({})
-  //.then(documents => console.log('Found documents:', documents))
- // .catch(err => console.error('Error querying documents:', err));
+Card.find({})
+  .then(documents => console.log('Found documents:', documents))
+  .catch(err => console.error('Error querying documents:', err));
 
 
 app.set('view engine', 'ejs');
@@ -53,14 +53,16 @@ app.get('/random', async (req, res) => {
     //console.log(count);
     const randomNum = Math.floor(Math.random() * count) + 1;
     const card = await Card.findOne({ num_id: randomNum }).lean();
-    console.log(card)
+    console.log(card);
+
 
 
     if (!card) {
-      return res.render('index', {card: null, error: 'No card found' });
+      return res.render('index', { card: null, error: 'No card found' });
     }
 
-    res.render('index', {card: card });
+    res.render('index', { card : card });
+    res.render('index', {message: test_text})
   } catch (error) {
     console.error('Error fetching random card:', error);
     res.render('index', { card: null, error: 'Failed to fetch random card' });
