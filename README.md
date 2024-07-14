@@ -11,4 +11,18 @@
 3. Tarot Reading
 
 //Animations when a card is selected
-//Randomizer algorithm
+
+## Things learned:
+
+1. How to create a server.js with api routes
+
+How to get EJS to render files from your server.js
+Connecting to MongoDB with Mongoose.
+
+What Environment variables are and why they are important (used them to store MongoDB login information)
+
+Gitignore and what it's important(hid package files)
+
+How to create a model.
+
+Started
