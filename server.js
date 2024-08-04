@@ -39,9 +39,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', async (req, res) => {
   try {
-    const cards = await Card.find().lean();
-    console.log(cards);
-    res.render('index.ejs', { cards });
+    const card = await Card.find().lean();
+    console.log(card);
+    res.render('index.ejs', { card });
   } catch (err) {
     console.error('Error fetching cards:', err);
   }
