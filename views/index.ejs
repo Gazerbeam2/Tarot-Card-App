@@ -19,7 +19,7 @@
 
     <p> <%= card.Reading %> </p>
 
-    <img src="<%= card.image %>">
+    <img src="<%= card.image %>" alt="<%= card.name %>" width="300" height="300">
 
    <form action="/random" method="GET">
        <button id="update-button" type="submit">Daily Reading</button>
