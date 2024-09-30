@@ -1,3 +1,5 @@
 node_modules
 .env
 .vscode
+exported_data.json
+exported_data2.json
