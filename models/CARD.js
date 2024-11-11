@@ -17,6 +17,6 @@ const cardSchema = new mongoose.Schema({
 
 });
 
-const Card = mongoose.model('Card', cardSchema,'Major-Arcana');
+const Card = mongoose.model('Card', cardSchema,'Tarot-Card');
 
 module.exports = Card;
