@@ -6,9 +6,8 @@
 
 1. Picture
 2. Description of arcana
-   3.Description of card
-
-3. Tarot Reading
+3. Description of card
+4. Tarot Reading
 
 //Animations when a card is selected
 
@@ -16,13 +15,14 @@
 
 1. How to create a server.js with api routes
 
-How to get EJS to render files from your server.js
-Connecting to MongoDB with Mongoose.
+2. How to get EJS to render files from your server.js
 
-What Environment variables are and why they are important (used them to store MongoDB login information)
+3. Connecting to MongoDB with Mongoose.
 
-Gitignore and what it's important(hid package files)
+4. What Environment variables are and why they are important (used them to store MongoDB login information)
 
-How to create a model.
+5. Gitignore and what it's important(hid package files)
 
-Started
+6. How to create a MongoDB Model.
+
+7.
