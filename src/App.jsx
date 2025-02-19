@@ -1,33 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState, useEffect } from "react";
+import Card from '.'
+import axios from "axios";
 
 function App() {
+  const [items, setItems] = useState([]);
+
+  useEffect(()) => {
+    axios.get("/api")
+  }
+
+
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+        <head>
+          <title>Tarot Card App</title>
+        </head>
+        <body>
+              <h1>Daily Tarot</h1>
+              <h2>{Card.name}</h2>
+              <h3>{Card.Arcana}</h3>
+              <p>Keywords: {Card.Keywords}</p>
+              <p>Keywords: {Card.Reading}</p>
+              <img src="" alt="" />
+
+        </body>
+    </div>
+
   )
 }
 

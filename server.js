@@ -41,7 +41,7 @@ app.get('/', async (req, res) => {
   try {
     const card = await Card.find().lean();
     console.log(card);
-    res.render('index.ejs', { card });
+    res.send({ card });
   } catch (err) {
     console.error('Error fetching cards:', err);
   }
