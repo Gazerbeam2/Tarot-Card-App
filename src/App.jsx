@@ -1,15 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Card from '.'
+import Card from './src/Card.jsx';
 import axios from "axios";
 
 function App() {
-  const [items, setItems] = useState([]);
-
-  useEffect(()) => {
-    axios.get("/api")
-  }
-
-
 
   return (
     <div>
@@ -18,11 +11,6 @@ function App() {
         </head>
         <body>
               <h1>Daily Tarot</h1>
-              <h2>{Card.name}</h2>
-              <h3>{Card.Arcana}</h3>
-              <p>Keywords: {Card.Keywords}</p>
-              <p>Keywords: {Card.Reading}</p>
-              <img src="" alt="" />
 
         </body>
     </div>

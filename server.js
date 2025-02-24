@@ -37,7 +37,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/', async (req, res) => {
+app.get('/api/card', async (req, res) => {
   try {
     const card = await Card.find().lean();
     console.log(card);
@@ -70,4 +70,4 @@ app.get('/random', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`I hear you right now on ${PORT}`));
+app.listen(PORT, () => console.log(`I love you ${PORT}`));
