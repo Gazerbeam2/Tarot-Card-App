@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from "react";
-import Card from '/src/components/Card.jsx';
+import CardApi from '/src/components/Card.jsx';
 import axios from "axios";
 
 
-function App() {
+
+
+export default function App() {
+
 
   return (
-    <div>
-      {card.map((cards) =>(
-        <TarotCard key={card._id} card={card} />
-        ))}
-    </div>
+
+      <CardApi/>
 
   )
 }
-
-export default App
